@@ -2,7 +2,7 @@
 
 ### Links
 
-- Live Site URL: [https://typescript-todo-list-10.netlify.app/]
+- Live Site URL: [https://typescript-todo-list-app-10.netlify.app/]
 
 ### Screenshot
 
@@ -11,4 +11,5 @@
 ### Built with
 
 - React
+- Tailwind
 
