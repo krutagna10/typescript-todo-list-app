@@ -1,19 +1,15 @@
-import React, { useState } from "react";
+import React, {useContext, useState} from "react";
 import Todo from "../../models/todo";
+import TodosContext from "../../context/TodosContext.tsx";
 
 interface TodoItemProps {
   index: number;
   todo: Todo;
-  onEditTodo: (editedTodo: Todo) => void;
-  onDeleteTodo: (deleteId: string) => void;
 }
 
-const TodoItem: React.FC<TodoItemProps> = ({
-  index,
-  todo,
-  onEditTodo,
-  onDeleteTodo,
-}) => {
+const TodoItem = ({ index, todo }: TodoItemProps) => {
+  const { onEditTodo, onDeleteTodo } = useContext(TodosContext);
+
   const [isEditing, setIsEditing] = useState<boolean>(false);
 
   function handleToggleIsEditing() {

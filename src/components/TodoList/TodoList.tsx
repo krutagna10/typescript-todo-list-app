@@ -1,18 +1,10 @@
-import React from "react";
-import Todo from "../../models/todo";
 import TodoItem from "../TodoItem/TodoItem";
+import { useContext } from "react";
+import TodosContext from "../../context/TodosContext.tsx";
 
-interface TodoListProps {
-  todos: Todo[];
-  onEditTodo: (editedTodo: Todo) => void;
-  onDeleteTodo: (deleteId: string) => void;
-}
+const TodoList = () => {
+  const { todos } = useContext(TodosContext);
 
-const TodoList: React.FC<TodoListProps> = ({
-  todos,
-  onEditTodo,
-  onDeleteTodo,
-}) => {
   return (
     <>
       <h2>Todo List</h2>
@@ -28,13 +20,7 @@ const TodoList: React.FC<TodoListProps> = ({
         </thead>
         <tbody>
           {todos.map((todo, index) => (
-            <TodoItem
-              key={index}
-              index={index}
-              todo={todo}
-              onEditTodo={onEditTodo}
-              onDeleteTodo={onDeleteTodo}
-            />
+            <TodoItem key={index} index={index} todo={todo} />
           ))}
         </tbody>
       </table>
@@ -42,5 +28,4 @@ const TodoList: React.FC<TodoListProps> = ({
   );
 };
 
-export type { TodoListProps };
 export default TodoList;

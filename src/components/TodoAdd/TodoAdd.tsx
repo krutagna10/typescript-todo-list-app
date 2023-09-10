@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React, {useContext, useState} from "react";
+import TodosContext from "../../context/TodosContext.tsx";
 
-interface TodoAddProps {
-  onAddTodo: (title: string, isCompleted: boolean) => void;
-}
-
-const TodoAdd: React.FC<TodoAddProps> = ({ onAddTodo }) => {
+const TodoAdd = () => {
+  const { onAddTodo  } = useContext(TodosContext);
   const [title, setTitle] = useState<string>("");
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
 
